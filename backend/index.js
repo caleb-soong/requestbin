@@ -26,7 +26,7 @@ app.all("/api/endpoints/:name", async (request, response) => {
   const body = rawBodyBuffer?.toString("utf8") ?? null;
 
   const { path, query, method, headers } = request;
-  const id = await MongoDB.storeRequest(body, name);
+  const id = await MongoDB.storeRequest(body, basket.id);
 
   await PgPersistence.insertRequest({
     basketId: basket.id,

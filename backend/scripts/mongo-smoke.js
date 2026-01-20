@@ -3,7 +3,7 @@ const mongo = require("../db/mongo");
 
 (async () => {
   try {
-    const id = await mongo.storeRequest({ hello: "world" });
+    const id = await mongo.storeRequest({ hello: "world" }, 0);
     console.log("Inserted body_mongo_id:", id);
     const doc = await mongo.getRequest(id);
     console.log("Fetched:", doc);
